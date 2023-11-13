@@ -22,6 +22,7 @@ package com.baidu.hugegraph.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.baidu.hugegraph.api.traverser.EdgeExistenceAPI;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -61,6 +62,7 @@ public class BaseApiTest extends BaseClientTest {
     protected static VariablesAPI variablesAPI;
     protected static TaskAPI taskAPI;
     protected static RebuildAPI rebuildAPI;
+    protected static EdgeExistenceAPI edgeExistenceAPI;
 
     protected static RestClient initClient() {
         client = new RestClient(BASE_URL, USERNAME, PASSWORD, TIMEOUT);
@@ -87,6 +89,7 @@ public class BaseApiTest extends BaseClientTest {
 
         vertexAPI = new VertexAPI(client, GRAPH);
         edgeAPI = new EdgeAPI(client, GRAPH);
+        edgeExistenceAPI = new EdgeExistenceAPI(client, GRAPH);
 
         variablesAPI = new VariablesAPI(client, GRAPH);
         taskAPI = new TaskAPI(client, GRAPH);

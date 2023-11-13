@@ -45,6 +45,7 @@ import com.baidu.hugegraph.api.traverser.SingleSourceShortestPathAPI;
 import com.baidu.hugegraph.api.traverser.TemplatePathsAPI;
 import com.baidu.hugegraph.api.traverser.VerticesAPI;
 import com.baidu.hugegraph.api.traverser.WeightedShortestPathAPI;
+import com.baidu.hugegraph.api.traverser.EdgeExistenceAPI;
 import com.baidu.hugegraph.client.RestClient;
 import com.baidu.hugegraph.structure.constant.Direction;
 import com.baidu.hugegraph.structure.graph.Edge;
@@ -95,6 +96,7 @@ public class TraverserManager {
     private KoutAPI koutAPI;
     private KneighborAPI kneighborAPI;
     private CountAPI countAPI;
+    private EdgeExistenceAPI edgeExistenceAPI;
     private RingsAPI ringsAPI;
     private RaysAPI raysAPI;
     private CustomizedPathsAPI customizedPathsAPI;
@@ -124,6 +126,7 @@ public class TraverserManager {
         this.koutAPI = new KoutAPI(client, graph);
         this.kneighborAPI = new KneighborAPI(client, graph);
         this.countAPI = new CountAPI(client, graph);
+        this.edgeExistenceAPI = new EdgeExistenceAPI(client, graph);
         this.ringsAPI = new RingsAPI(client, graph);
         this.raysAPI = new RaysAPI(client, graph);
         this.customizedPathsAPI = new CustomizedPathsAPI(client, graph);
@@ -422,6 +425,12 @@ public class TraverserManager {
 
     public long count(CountRequest request) {
         return this.countAPI.post(request);
+    }
+
+    public List<Edge> edgeExistence(Object sourceId, Object targetId, String edgeLabel,
+                                    String sortValues, long limit){
+        return this.edgeExistenceAPI.get(sourceId, targetId, edgeLabel,
+                                         sortValues, limit);
     }
 
     public List<Path> rings(Object sourceId, int depth) {

@@ -49,6 +49,7 @@ import com.baidu.hugegraph.api.traverser.ShortestPathApiTest;
 import com.baidu.hugegraph.api.traverser.SingleSourceShortestPathApiTest;
 import com.baidu.hugegraph.api.traverser.TemplatePathsApiTest;
 import com.baidu.hugegraph.api.traverser.WeightedShortestPathApiTest;
+import com.baidu.hugegraph.api.traverser.EdgeExistenceAPI;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -74,6 +75,7 @@ import com.baidu.hugegraph.api.traverser.WeightedShortestPathApiTest;
     KneighborApiTest.class,
     PathsApiTest.class,
     CountApiTest.class,
+    EdgeExistenceAPI.class,
     RingsRaysApiTest.class,
     SameNeighborsApiTest.class,
     JaccardSimilarityApiTest.class,
